@@ -15,7 +15,7 @@ warnings.filterwarnings('ignore')
 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 
-# LOAD DATASET
+
 data = load_iris()
 df = pd.DataFrame(data['data'], 
                   columns = data['feature_names'])
@@ -24,12 +24,11 @@ classes = data['target_names']
 
 X = df.iloc[:,:-1]
 
-# MODEL_LIST
+
 all_model_name = ['Logistic Regression',
                  'Naive Bayes',"Decision Tree",
                  "Random Forest","SVM",
                  "KNN"]
-
 
 
 all_models = []
@@ -39,16 +38,13 @@ for i in all_model_name:
         model = pickle.load(f)
         all_models.append(model)
 
-# USER INPUT AND PAGE TITLE
 st.title("ML Flower Classification Project")
-# Image url
+
 url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF2roQNP1rPFtklA8xgZt76jyhj6x2BUjVe6gxwxJ53pI0_TYfQLRZh8oZ&s=10"
 st.image(url)
 
-# Show Dataframe sample
 st.dataframe(df.sample(5))
 
-# LEFT SIDE BAR for USER VALUE INPUT
 st.sidebar.title("Select Iris Features")
 st.sidebar.image(url)
 
@@ -60,13 +56,13 @@ for i in X:
 
     user_input.append(ans)
 
-# USER INPUT SHOW
+
 st.markdown("""
 <h2> User Input Value</h2>
 """,unsafe_allow_html=True)
 st.write(user_input)
 
-# MODEL PREDICTION
+
 if st.button('Predict'):
     with st.spinner('Predicting'):
         time.sleep(2)
@@ -121,5 +117,3 @@ footer = """
 """
 
 st.markdown(footer, unsafe_allow_html=True)
-
-# All done
