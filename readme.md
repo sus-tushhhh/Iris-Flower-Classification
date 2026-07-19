@@ -112,7 +112,7 @@ Model Evaluation
 Save Model
    ↓
 Streamlit Deployment
-``
+```
 
 ---
 
@@ -125,5 +125,7 @@ Tushant
 ---
 
 ⭐ If you found this project useful, don't forget to **star the repository!**
+
+```
 
 ```
